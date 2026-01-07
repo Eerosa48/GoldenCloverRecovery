@@ -1,58 +1,3 @@
-:root {
-  --max: 980px;
-
-  /* Brand palette */
-  --gold: #efd14e;
-  --gold-soft: #f1dc78;
-  --indigo: #777db3;
-
-  /* Typography (change these later to swap fonts site-wide) */
-  --font-body: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
-  --font-heading: var(--font-body);
-  --font-display: "Latin Compressed", var(--font-body);
-
-  /* Theme-able UI tokens */
-  --page-bg: var(--gold-soft);
-  --content-bg: transparent;
-
-  --text: #111;
-  --muted: #333;
-
-  --surface: #fff;
-  --border: rgba(0, 0, 0, 0.10);
-
-  --link: var(--indigo);
-
-  --btn-bg: var(--gold);
-  --btn-text: #000;
-  --btn-outline-border: #111;
-}
-
-/* Theme presets (switch by changing body class) */
-body.theme-sand {
-  --page-bg: var(--gold-soft);
-  --content-bg: transparent;
-  --text: #111;
-  --muted: #333;
-  --link: var(--indigo);
-}
-
-body.theme-indigo {
-  --page-bg: var(--indigo);
-  --content-bg: rgba(241, 220, 120, 0.92);
-  --text: #111;
-  --muted: #222;
-  --link: #111;
-}
-
-body.theme-gold {
-  --page-bg: var(--gold);
-  --content-bg: rgba(255, 255, 255, 0.85);
-  --text: #111;
-  --muted: #333;
-  --link: var(--indigo);
-}
-
 @font-face {
   font-family: "Latin Compressed";
   src: url("assets/fonts/LatinCompressed.woff2") format("woff2"),
@@ -62,23 +7,84 @@ body.theme-gold {
   font-display: swap;
 }
 
-* { box-sizing: border-box; }
-html, body {
-  margin: 0;
-  padding: 0;
+/* =========================
+   Theme + global settings
+   ========================= */
+:root{
+  --max: 1100px;
+
+  --gold: #efd14e;
+  --gold-soft: #f1dc78;
+  --indigo: #777db3;
+
+  --page-bg: #efd14e;                  /* default; overridden by theme if needed */
+  --content-bg: rgba(255,255,255,0.86);
+  --surface: #fff;
+  --text: #111;
+  --muted: #444;
+  --border: rgba(0,0,0,0.10);
+
+  --link: #1a56db;
+
+  /* Button defaults */
+  --btn-bg: var(--gold);
+  --btn-text: #111;
+  --btn-outline-border: rgba(0,0,0,0.35);
+
+  /* Fonts (easy to swap later) */
+  --font-body: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  --font-heading: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  --font-display: "Latin Compressed", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
 }
 
-body {
+body.theme-gold{
+  --page-bg: #efd14e;
+  --content-bg: rgba(255,255,255,0.86);
+  --surface: #fff;
+  --text: #111;
+  --muted: #444;
+  --border: rgba(0,0,0,0.12);
+  --link: #1a56db;
+}
+
+*{ box-sizing: border-box; }
+html, body{
+  margin: 0;
+  padding: 0;
   font-family: var(--font-body);
   line-height: 1.5;
   background: var(--page-bg);
   color: var(--text);
 }
 
+img{ max-width: 100%; height: auto; }
 
-.wrap { max-width: var(--max); margin: 0 auto; padding: 16px; }
+.wrap{
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 16px;
+}
 
-.site-header {
+main.wrap{
+  background: var(--content-bg);
+  border-radius: 18px;
+}
+
+main a{ color: var(--link); }
+main a:visited{ color: var(--link); }
+
+.section{ padding: 22px 0; }
+
+h1, h2, h3{
+  font-family: var(--font-heading);
+  line-height: 1.2;
+  margin: 0 0 10px;
+}
+
+/* =========================
+   Header / Nav
+   ========================= */
+.site-header{
   position: sticky;
   top: 0;
   background: #000;
@@ -86,38 +92,49 @@ body {
   z-index: 10;
 }
 
-.header-row {
+.header-row{
   display: flex;
   align-items: center;
   gap: 12px;
 }
 
-/* Header brand (logo + GCR) */
 .brand,
-.brand:visited {
-  color: #efd14e;
+.brand:visited{
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: var(--gold);
 }
 
-.brand span {
-  color: #efd14e;
-  font-family: "Latin Compressed", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+.brand-logo{
+  height: clamp(44px, 6vw, 60px);
+  width: auto;
+  max-width: 140px;
+  object-fit: contain;
+  display: block;
+}
+
+.brand span{
+  color: var(--gold);
+  font-family: var(--font-display);
   font-weight: 800;
-  font-size: clamp(28px, 6vw, 48px);      /* tweak as desired */
+  font-size: clamp(34px, 5vw, 48px);
   letter-spacing: 0.08em;
   line-height: 1;
 }
 
-.nav-toggle {
+.nav-toggle{
   margin-left: auto;
   padding: 10px 12px;
-  border: 1px solid #ddd;
+  border: 1px solid var(--gold);
   background: #000;
   border-radius: 10px;
-  border-color: #efd14e;
-  color: #efd14e;
+  color: var(--gold);
+  cursor: pointer;
 }
 
-.site-nav {
+.site-nav{
   display: none;
   width: 100%;
   padding-top: 12px;
@@ -125,22 +142,34 @@ body {
   gap: 10px;
 }
 
-.site-nav a { text-decoration: none; color: #efd14e; }
-.site-nav.open { display: flex; }
+.site-nav.open{ display: flex; }
+.site-nav a{ text-decoration: none; color: var(--gold); }
 
+/* Desktop nav */
+@media (min-width: 800px){
+  .nav-toggle{ display: none; }
+  .site-nav{
+    display: flex;
+    width: auto;
+    padding-top: 0;
+    margin-left: auto;
+    flex-direction: row;
+    align-items: center;
+    gap: 16px;
+  }
+}
 
-
-/* --- HERO (responsive background image + readable text) --- */
+/* =========================
+   Hero (image + readable text)
+   ========================= */
 .hero{
   position: relative;
   border-radius: 10px;
   overflow: hidden;
 
-  /* responsive spacing */
   padding: clamp(28px, 6vw, 96px) clamp(16px, 6vw, 72px);
   min-height: clamp(320px, 52vh, 520px);
 
-  /* image + overlay for readability */
   background:
     linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
     url("assets/neon-sign.jpg");
@@ -173,30 +202,28 @@ body {
     background-color: #000;
   }
 
-  /* prevent buttons from cramping */
   .hero .actions{
     flex-direction: column;
     align-items: flex-start;
   }
 
-  .hero p{
-    max-width: 48ch;
-  }
+  .hero p{ max-width: 48ch; }
 }
 
-/* Make hero responsive (fix mobile "zoomed" background + cramped text) */
-/* Mobile-specific: stop the image from being over-cropped */
+/* =========================
+   Layout helpers / cards
+   ========================= */
+.grid{
+  display: grid;
+  gap: 14px;
+  grid-template-columns: 1fr;
 }
 
-.hero h1,
-.section { padding: 22px 0; }
-h1, h2, h3 {
-  font-family: var(--font-heading);
- line-height: 1.2; margin: 0 0 10px; }
+@media (min-width: 800px){
+  .grid{ grid-template-columns: repeat(2, 1fr); }
+}
 
-.grid { display: grid; gap: 14px; grid-template-columns: 1fr; }
-
-.card {
+.card{
   border: 1px solid var(--border);
   border-radius: 16px;
   padding: 14px;
@@ -204,12 +231,20 @@ h1, h2, h3 {
   color: #111;
 }
 
-.list { margin: 0; padding-left: 18px; }
-.list li { margin: 8px 0; }
+.list{ margin: 0; padding-left: 18px; }
+.list li{ margin: 8px 0; }
 
-.actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 12px; }
+.actions{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 12px;
+}
 
-.btn {
+/* =========================
+   Buttons
+   ========================= */
+.btn{
   display: inline-block;
   padding: 10px 14px;
   border-radius: 12px;
@@ -219,91 +254,70 @@ h1, h2, h3 {
   background: var(--btn-bg);
 }
 
-
-/* Book Now buttons (indigo) */
-.btn-book {
+/* Book Now buttons (indigo, gold text) */
+.btn-book{
   background: var(--indigo);
   border-color: var(--indigo);
   color: var(--gold);
 }
+
 .btn-book:visited,
 .btn-book:hover,
-.btn-book:active {
+.btn-book:active{
   color: var(--gold);
 }
 
-.btn-outline { background: transparent; color: inherit; border-color: var(--btn-outline-border); }
+/* Ensure nav "Book Now" button text stays readable */
+.site-nav a.btn-book,
+.site-nav a.btn-book:visited,
+.site-nav a.btn-book:hover,
+.site-nav a.btn-book:active{
+  color: var(--gold);
+}
 
-.muted { color: var(--muted); }
+.btn-outline{
+  background: transparent;
+  color: inherit;
+  border-color: var(--btn-outline-border);
+}
 
-.site-footer {
+.muted{ color: var(--muted); }
+
+/* =========================
+   Footer (legacy simple row)
+   ========================= */
+.site-footer{
   border-top: 1px solid #eee;
   margin-top: 28px;
   padding: 18px 0;
 }
 
-.footer-row {
+.footer-row{
   display: flex;
   flex-direction: column;
   gap: 12px;
 }
 
-.footer-links { display: flex; gap: 14px; flex-wrap: wrap; }
-.footer-links a { color: var(--text); }
+.footer-links{ display: flex; gap: 14px; flex-wrap: wrap; }
+.footer-links a{ color: var(--text); }
 
-/* Desktop */
-@media (min-width: 800px) {
-  .nav-toggle { display: none; }
-  .site-nav {
-    display: flex;
-    width: auto;
-    padding-top: 0;
-    margin-left: auto;
+@media (min-width: 800px){
+  .footer-row{
     flex-direction: row;
     align-items: center;
-    gap: 16px;
+    justify-content: space-between;
   }
-  .grid { grid-template-columns: repeat(2, 1fr); }
-  .footer-row { flex-direction: row; align-items: center; justify-content: space-between; }
-}
-/* Ensure nav "Book Now" button text stays readable */
-.site-nav a.btn-book,
-.site-nav a.btn-book:visited,
-.site-nav a.btn-book:hover,
-.site-nav a.btn-book:active {
-  color: var(--gold);
-}
-.brand {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  text-decoration: none;
 }
 
-.brand-logo {
-  height: clamp(44px, 6vw, 60px);      /* adjust as desired */
-  width: auto;
-  max-width: 140px;  /* prevents it from stretching wide */
-  object-fit: contain;
-  display: block;
-}
-
-
-/* --- Theme system additions --- */
-main.wrap {
-  background: var(--content-bg);
-  border-radius: 18px;
-}
-
-main a { color: var(--link); }
-main a:visited { color: var(--link); }
-
-/* --- FOOTER (3-column) --- */
+/* =========================
+   Footer (3-column)
+   ========================= */
 .site-footer{
   background: #000;
   color: #fff;
   padding: 32px 0;
   margin-top: 32px;
+  border-top: 1px solid #222;
 }
 
 .footer-grid{
@@ -314,13 +328,8 @@ main a:visited { color: var(--link); }
 }
 
 @media (min-width: 900px){
-  .footer-grid{
-    grid-template-columns: 1fr 1.4fr 0.8fr;
-  }
-  .footer-right{
-    display: flex;
-    justify-content: flex-end;
-  }
+  .footer-grid{ grid-template-columns: 1fr 1.4fr 0.8fr; }
+  .footer-right{ display: flex; justify-content: flex-end; }
 }
 
 .footer-title{
@@ -337,15 +346,8 @@ main a:visited { color: var(--link); }
   margin-bottom: 14px;
 }
 
-.cred{
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.cred-text{
-  font-weight: 700;
-}
+.cred{ display: inline-flex; align-items: center; gap: 8px; }
+.cred-text{ font-weight: 700; }
 
 .cert-icon{
   width: 20px;
@@ -366,15 +368,15 @@ main a:visited { color: var(--link); }
   object-fit: contain;
   display: block;
 }
+
 @media (min-width: 900px){
   .social-icon{
     width: 36px;
     height: 36px;
   }
-
-.footer-block{
-  margin-top: 14px;
 }
+
+.footer-block{ margin-top: 14px; }
 
 .footer-label{
   color: var(--gold-soft);
@@ -388,9 +390,7 @@ main a:visited { color: var(--link); }
   margin: 0;
 }
 
-.footer-list li{
-  margin: 6px 0;
-}
+.footer-list li{ margin: 6px 0; }
 
 .map-thumb{
   margin-top: 10px;
@@ -400,6 +400,15 @@ main a:visited { color: var(--link); }
   border: 1px solid rgba(239, 209, 78, 0.25);
   display: block;
 }
+
+.map-link{
+  color: #fff;
+  text-decoration: underline;
+  text-decoration-color: rgba(239, 209, 78, 0.8);
+  text-underline-offset: 3px;
+}
+
+.map-link:hover{ color: var(--gold); }
 
 .footer-actions{
   display: grid;
@@ -412,23 +421,137 @@ main a:visited { color: var(--link); }
   color: var(--gold);
   border-color: var(--gold);
 }
-.btn-footer-outline:hover{
-  opacity: 0.9;
-}
 
-/* Mobile spacing tweak */
+.btn-footer-outline:hover{ opacity: 0.9; }
+
 @media (max-width: 600px){
-  .footer-actions{
-    width: 100%;
-  }
-}
-.map-link{
-  color: #fff;
-  text-decoration: underline;
-  text-decoration-color: rgba(239, 209, 78, 0.8);
-  text-underline-offset: 3px;
+  .footer-actions{ width: 100%; }
 }
 
-.map-link:hover{
+/* =========================
+   ABOUT PAGE
+   ========================= */
+.about-page{ padding-top: 18px; }
+
+.about-title{
+  width: fit-content;
+  margin: 10px auto 18px;
+  padding: 10px 18px;
+
+  text-align: center;
+  font-family: var(--font-display);
+  letter-spacing: 0.10em;
+  font-size: clamp(26px, 4.5vw, 44px);
+  line-height: 1.1;
+
   color: var(--gold);
+  background: #000;
+  border: 1px solid rgba(239, 209, 78, 0.35);
+  border-radius: 16px;
+}
+
+.about-grid{
+  display: grid;
+  gap: 22px;
+  grid-template-columns: 1fr;
+  align-items: start;
+}
+
+.about-photo img{
+  width: 100%;
+  max-width: 320px;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 10px;
+  display: block;
+  margin: 0 auto;
+  border: 1px solid var(--border);
+}
+
+.about-copy{
+  max-width: 62ch;
+  margin: 0 auto;
+}
+
+.about-copy p{ margin: 0 0 14px; }
+
+/* Family section */
+.family{
+  padding: 32px 0 12px;
+}
+
+.family-title{
+  font-family: var(--font-display);
+  letter-spacing: 0.04em;
+  margin: 0 0 18px;
+  text-align: center;
+}
+
+.family-grid{
+  display: grid;
+  gap: 22px;
+  grid-template-columns: 1fr; /* one-column stack by default (and on desktop too) */
+  align-items: start;
+}
+
+.family-left img{
+  width: 100%;
+  max-width: 520px;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 10px;
+  display: block;
+  margin: 0 auto;
+  border: 1px solid var(--border);
+}
+
+.family-copy{
+  max-width: 70ch;
+  margin: 0 auto;
+}
+
+.family-right{ width: 100%; }
+
+.family-strip{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  align-items: stretch;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.family-strip img{
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  display: block;
+}
+
+@media (min-width: 900px){
+  .about-grid{
+    grid-template-columns: 320px 1fr;
+    gap: 34px;
+  }
+  .about-copy{ margin: 0; }
+  .about-photo img{ margin: 0; }
+
+  .family-title{
+    text-align: left;
+    margin-left: 0;
+  }
+
+  /* keep the family section stacked:
+     family photo -> text -> dog strip (prevents “squeezed” middle column) */
+  .family-left img{
+    margin: 0;
+  }
+  .family-copy{
+    margin: 0;
+  }
+  .family-strip{
+    margin: 0;
+  }
 }
