@@ -153,6 +153,19 @@ h1, h2, h3 {
   background: var(--btn-bg);
 }
 
+
+/* Book Now buttons (indigo) */
+.btn-book {
+  background: var(--indigo);
+  border-color: var(--indigo);
+  color: var(--gold);
+}
+.btn-book:visited,
+.btn-book:hover,
+.btn-book:active {
+  color: var(--gold);
+}
+
 .btn-outline { background: transparent; color: inherit; border-color: var(--btn-outline-border); }
 
 .muted { color: var(--muted); }
@@ -187,12 +200,12 @@ h1, h2, h3 {
   .grid { grid-template-columns: repeat(2, 1fr); }
   .footer-row { flex-direction: row; align-items: center; justify-content: space-between; }
 }
-/* Ensure nav "Book Now" button text stays white and visible */
-.site-nav a.btn,
-.site-nav a.btn:visited,
-.site-nav a.btn:hover,
-.site-nav a.btn:active {
-  color: var(--btn-text);
+/* Ensure nav "Book Now" button text stays readable */
+.site-nav a.btn-book,
+.site-nav a.btn-book:visited,
+.site-nav a.btn-book:hover,
+.site-nav a.btn-book:active {
+  color: #fff;
 }
 .hero { text-align: left; }
 .hero h1 { text-align: center; font-family: var(--font-display); }
