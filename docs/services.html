@@ -27,3 +27,99 @@
       </nav>
     </div>
   </header>
+  
+  
+  
+  
+  
+  
+  <footer class="site-footer">
+    <div class="wrap footer-grid">
+
+      <!-- LEFT column -->
+      <div class="footer-col footer-left">
+        <h2 class="footer-title">Danielle Erosa</h2>
+
+        <div class="footer-creds">
+          <span class="cred">
+            <span class="cred-text">LMT</span>
+          </span>
+
+          <span class="cred">
+            <span class="cred-text">EMT-P</span>
+          </span>
+        </div>
+
+        <div class="footer-social">
+          <!-- placeholders: replace src paths with your actual icon files -->
+          <a class="social-link" href="https://instagram.com/golden_clover_recovery" target="_blank" rel="noopener" aria-label="Instagram">
+            <img class="social-icon" src="assets/Instagram logo.png" alt="" />
+          </a>
+
+          <a class="social-link" href="https://facebook.com/GCRecov" target="_blank" rel="noopener" aria-label="Facebook">
+            <img class="social-icon" src="assets/FB logo.png" alt="" />
+          </a>
+        </div>
+      </div>
+
+      <!-- MIDDLE column -->
+      <div class="footer-col footer-middle">
+        <h2 class="footer-title">By Appointment Only</h2>
+
+        <div class="footer-block">
+          <div class="footer-label">Hours:</div>
+          <ul class="footer-list">
+            <li><strong>Monday:</strong> By Appointment Only</li>
+            <li><strong>Tuesday:</strong> Closed</li>
+            <li><strong>Wednesday:</strong> Closed</li>
+            <li><strong>Thursday:</strong> Closed</li>
+            <li><strong>Friday:</strong> By Appointment Only</li>
+            <li><strong>Saturday:</strong> By Appointment Only</li>
+            <li><strong>Sunday:</strong> By Appointment Only</li>
+          </ul>
+        </div>
+
+        <div class="footer-block">
+          <div class="footer-label">In-Office:</div>
+          <a class="map-link"
+             href="https://www.google.com/maps/search/?api=1&query=266%20W%20Third%20Pl%2C%20Mesa%2C%20AZ%2085201"
+             target="_blank" rel="noopener">
+            266 W Third Pl<br>
+            Mesa, AZ 85201
+          </a>
+        </div>
+
+        <div class="footer-block">
+          <div class="footer-label">Mobile IV:</div>
+          <div>Mesa, Tempe, Chandler, Gilbert, Scottsdale, Phoenix</div>
+        </div>
+      </div>
+
+      <!-- RIGHT column -->
+      <div class="footer-col footer-right">
+        <div class="footer-actions">
+          <a class="btn btn-book" href="https://www.massagebook.com/therapists/GoldenCloverRecovery/services?ncf_source=friendly_url&src=external"
+             target="_blank" rel="noopener">
+            Book Now
+          </a>
+
+          <a class="btn btn-footer-outline" href="tel:+16025828652">
+            Contact
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <script>
+    const btn = document.querySelector(".nav-toggle");
+    const nav = document.querySelector(".site-nav");
+
+    btn.addEventListener("click", () => {
+      const open = nav.classList.toggle("open");
+      btn.setAttribute("aria-expanded", open ? "true" : "false");
+    });
+  </script>
+</body>
+</html>
