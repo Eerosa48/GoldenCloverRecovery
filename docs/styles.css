@@ -298,7 +298,137 @@ main.wrap {
 main a { color: var(--link); }
 main a:visited { color: var(--link); }
 
-.site-footer {
-  background: var(--content-bg);
-  color: var(--text);
+/* --- FOOTER (3-column) --- */
+.site-footer{
+  background: #000;
+  color: #fff;
+  padding: 32px 0;
+  margin-top: 32px;
+}
+
+.footer-grid{
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 28px;
+  align-items: start;
+}
+
+@media (min-width: 900px){
+  .footer-grid{
+    grid-template-columns: 1fr 1.4fr 0.8fr;
+  }
+  .footer-right{
+    display: flex;
+    justify-content: flex-end;
+  }
+}
+
+.footer-title{
+  margin: 0 0 10px;
+  color: var(--gold);
+  font-family: var(--font-display);
+  letter-spacing: 0.04em;
+}
+
+.footer-creds{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-bottom: 14px;
+}
+
+.cred{
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.cred-text{
+  font-weight: 700;
+}
+
+.cert-icon{
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  display: inline-block;
+}
+
+.footer-social{
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.social-icon{
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  display: block;
+}
+@media (min-width: 900px){
+  .social-icon{
+    width: 36px;
+    height: 36px;
+  }
+
+.footer-block{
+  margin-top: 14px;
+}
+
+.footer-label{
+  color: var(--gold-soft);
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.footer-list{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-list li{
+  margin: 6px 0;
+}
+
+.map-thumb{
+  margin-top: 10px;
+  width: 100%;
+  max-width: 360px;
+  border-radius: 12px;
+  border: 1px solid rgba(239, 209, 78, 0.25);
+  display: block;
+}
+
+.footer-actions{
+  display: grid;
+  gap: 12px;
+  width: min(240px, 100%);
+}
+
+.btn-footer-outline{
+  background: transparent;
+  color: var(--gold);
+  border-color: var(--gold);
+}
+.btn-footer-outline:hover{
+  opacity: 0.9;
+}
+
+/* Mobile spacing tweak */
+@media (max-width: 600px){
+  .footer-actions{
+    width: 100%;
+  }
+}
+.map-link{
+  color: #fff;
+  text-decoration: underline;
+  text-decoration-color: rgba(239, 209, 78, 0.8);
+  text-underline-offset: 3px;
+}
+
+.map-link:hover{
+  color: var(--gold);
 }
