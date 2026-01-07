@@ -555,3 +555,28 @@ h1, h2, h3{
     margin: 0;
   }
 }
+.contact-panel{
+  border: 1px solid rgba(239, 209, 78, 0.35);
+  border-radius: 12px;
+  padding: 12px 14px;
+  background: transparent;
+}
+
+.contact-title{
+  color: var(--gold);
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+
+.contact-link{
+  display: block;
+  color: #fff;
+  text-decoration: none;
+  margin: 6px 0;
+}
+
+.contact-link:hover{
+  color: var(--gold);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
