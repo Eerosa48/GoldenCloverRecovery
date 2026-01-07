@@ -122,7 +122,27 @@ html, body {
 .site-nav a { text-decoration: none; color: #efd14e; }
 .site-nav.open { display: flex; }
 
-.hero { padding: 22px 0 6px; }
+.hero{
+  position: relative;
+  padding: 100px 80px; /* a bit taller so the image shows */
+  border-radius: 10px;
+  overflow: hidden;
+
+  /* image + dark overlay for readability */
+  background:
+    linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+    url("assets/neon-sign.jpg");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.hero h1,
+.hero p {
+  color: #fff;
+}
+
 .section { padding: 22px 0; }
 h1, h2, h3 {
   font-family: var(--font-heading);
