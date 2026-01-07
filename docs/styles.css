@@ -427,6 +427,43 @@ h1, h2, h3{
 @media (max-width: 600px){
   .footer-actions{ width: 100%; }
 }
+/* --- Footer Contact panel (RIGHT column) --- */
+
+.site-footer .contact-panel{
+  border: 1px solid rgba(239, 209, 78, 0.35);
+  border-radius: 14px;
+  padding: 16px;
+  background: rgba(0,0,0,0.25);
+}
+
+.site-footer .contact-panel .contact-title{
+  margin: 0 0 10px;
+  color: var(--gold);
+  font-family: var(--font-display);
+  letter-spacing: 0.04em;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.site-footer .contact-panel .contact-link{
+  display: block;
+  color: #fff;
+  text-decoration: underline;
+  text-decoration-color: rgba(239, 209, 78, 0.8);
+  text-underline-offset: 3px;
+  margin-top: 10px;
+}
+
+.site-footer .contact-panel .contact-link:hover{
+  color: var(--gold);
+}
+
+/* keep the Book Now button looking consistent inside the panel */
+.site-footer .contact-panel .btn-book{
+  margin-top: 14px;
+  width: 100%;
+  text-align: center;
+}
 
 /* =========================
    ABOUT PAGE
@@ -583,7 +620,7 @@ h1, h2, h3{
 /* --- CONTACT PAGE --- */
 
 /* Contact page only: make these labels black for readability */
-.contact-page .footer-label{
+.contact-page .contact-label{
   color: #111;
 }
 
@@ -622,8 +659,14 @@ h1, h2, h3{
 .section-title{ margin: 0 0 12px; font-weight: 900; }
 
 .contact-links{ display: grid; gap: 10px; }
-.contact-link{
+.contactpage-link{
   color: #111;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: rgba(119,125,179,0.8);
+}
+.contact-link{
+  color: var(--gold);
   text-decoration: underline;
   text-underline-offset: 3px;
   text-decoration-color: rgba(119,125,179,0.8);
