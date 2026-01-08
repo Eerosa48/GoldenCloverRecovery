@@ -174,7 +174,7 @@
         <br>
         <div class="footer-block">
           <div class="footer-label">In-Office:</div>
-          <a class="map-link"
+          <a class="map-link map-smart"
              href="https://www.google.com/maps/search/?api=1&query=266%20W%20Third%20Pl%2C%20Mesa%2C%20AZ%2085201"
              target="_blank" rel="noopener">
             266 W Third Pl<br>
@@ -215,7 +215,21 @@
     btn.addEventListener("click", () => {
       const open = nav.classList.toggle("open");
       btn.setAttribute("aria-expanded", open ? "true" : "false");
-    });
+  });
+
+  // Smart “Open in Maps” links (Apple devices -> Apple Maps, others -> Google Maps)
+  const address = "266 W Third Pl, Mesa, AZ 85201";
+  const appleUrl = "https://maps.apple.com/?q=" + encodeURIComponent(address);
+  const googleUrl = "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(address);
+
+  const isApple = /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent);
+  const mapsUrl = isApple ? appleUrl : googleUrl;
+
+  document.querySelectorAll("a.map-smart").forEach(a => {
+    a.href = mapsUrl;
+  });
+</script>
+
   </script>
 </body>
 </html>
