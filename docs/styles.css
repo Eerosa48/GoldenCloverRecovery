@@ -637,7 +637,7 @@ h1, h2, h3{
   margin: 0 0 10px;
   font-family: var(--font-display);
   letter-spacing: 0.08em;
-  color: #fff;
+  color: #111;
 }
 .contact-creds{ display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
 
