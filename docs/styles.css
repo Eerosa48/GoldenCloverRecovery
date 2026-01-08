@@ -627,7 +627,7 @@ h1, h2, h3{
 .contact-page{ padding-top: 18px; padding-bottom: 8px; }
 
 .contact-hero{ text-align: center; padding: 10px 0 18px; }
-.contact-title{
+.contact-page .contact-title{
   margin: 0 0 10px;
   font-family: var(--font-display);
   letter-spacing: 0.08em;
