@@ -379,7 +379,7 @@ h1, h2, h3{
 .footer-block{ margin-top: 14px; }
 
 .footer-label{
-  color: var(--gold-soft);
+  color: #fff;
   font-weight: 700;
   margin-bottom: 6px;
 }
