@@ -151,7 +151,7 @@
       <!-- LEFT column -->
       <div class="footer-col footer-left">
         <h2 class="footer-title">Danielle Erosa</h2>
-
+        </br>
         <div class="footer-creds">
           <span class="cred">
             <span class="cred-text">LMT</span>
@@ -161,7 +161,7 @@
             <span class="cred-text">EMT-P</span>
           </span>
         </div>
-
+        </br>
         <div class="footer-social">
           <!-- placeholders: replace src paths with your actual icon files -->
           <a class="social-link" href="https://instagram.com/golden_clover_recovery" target="_blank" rel="noopener" aria-label="Instagram">
@@ -190,7 +190,7 @@
             <li><strong>Sunday:</strong> By Appointment Only</li>
           </ul>
         </div>
-
+        </br>
         <div class="footer-block">
           <div class="footer-label">In-Office:</div>
           <a class="map-link"
@@ -200,7 +200,7 @@
             Mesa, AZ 85201
           </a>
         </div>
-
+        </br>
         <div class="footer-block">
           <div class="footer-label">Mobile IV:</div>
           <div>Mesa, Tempe, Chandler, Gilbert, Scottsdale, Phoenix</div>
@@ -210,13 +210,16 @@
       <!-- RIGHT column -->
       <div class="footer-col footer-right">
         <div class="footer-actions">
-          <a class="btn btn-book" href="https://www.massagebook.com/therapists/GoldenCloverRecovery/services?ncf_source=friendly_url&src=external"
+          <div class="contact-panel" aria-label="Contact options">
+            <h2 class="contact-title">Contact</h2>
+            </br>
+            <a class="contact-link" href="mailto:GoldenCloverRecovery@gmail.com">Email: GoldenCloverRecovery@gmail.com</a>
+			</br>
+			<a class="contact-link" href="tel:+16025828652">Call / Text: 602-582-8652</a>
+			</br>
+		  <a class="btn btn-book" href="https://www.massagebook.com/therapists/GoldenCloverRecovery/services?ncf_source=friendly_url&src=external"
              target="_blank" rel="noopener">
             Book Now
-          </a>
-
-          <a class="btn btn-footer-outline" href="tel:+16025828652">
-            Contact
           </a>
         </div>
       </div>
@@ -224,16 +227,14 @@
     </div>
   </footer>
 
-<script>
-  const btn = document.querySelector(".nav-toggle");
-  const nav = document.querySelector(".site-nav");
+  <script>
+    const btn = document.querySelector(".nav-toggle");
+    const nav = document.querySelector(".site-nav");
 
-  if (btn && nav) {
     btn.addEventListener("click", () => {
       const open = nav.classList.toggle("open");
       btn.setAttribute("aria-expanded", open ? "true" : "false");
     });
-  }
-</script>
+  </script>
 </body>
 </html>
