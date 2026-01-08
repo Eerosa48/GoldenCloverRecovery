@@ -133,10 +133,11 @@ h1, h2, h3{
   border-radius: 10px;
   color: var(--gold);
   cursor: pointer;
+  display: none;
 }
 
 .site-nav{
-  display: none;
+  display: flex;
   width: 100%;
   padding-top: 12px;
   flex-direction: column;
@@ -148,7 +149,9 @@ h1, h2, h3{
 
 /* Desktop nav */
 @media (min-width: 800px){
-  .nav-toggle{ display: none; }
+  .nav-toggle{
+	  display: none;
+   }
   .site-nav{
     display: flex;
     width: auto;
