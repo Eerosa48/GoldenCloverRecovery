@@ -147,7 +147,7 @@ h1, h2, h3{
 
 /* Desktop nav */
 @media (min-width: 800px){
-  .nav-toggle{ display: flex; }
+  .nav-toggle{ display: none; }
   .site-nav{
     display: flex;
     width: auto;
