@@ -170,17 +170,14 @@
     </div>
   </footer>
 
-<script>
-  // Mobile nav (only if the button exists)
-  const btn = document.querySelector(".nav-toggle");
-  const nav = document.querySelector(".site-nav");
+  <script>
+    const btn = document.querySelector(".nav-toggle");
+    const nav = document.querySelector(".site-nav");
 
-  if (btn && nav) {
     btn.addEventListener("click", () => {
       const open = nav.classList.toggle("open");
       btn.setAttribute("aria-expanded", open ? "true" : "false");
-    });
-  }
+  });
 
   // Smart “Open in Maps” links (Apple devices -> Apple Maps, others -> Google Maps)
   const address = "266 W Third Pl, Mesa, AZ 85201";
@@ -194,5 +191,7 @@
     a.href = mapsUrl;
   });
 </script>
+
+  </script>
 </body>
 </html>
