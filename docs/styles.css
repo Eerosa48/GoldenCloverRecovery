@@ -379,7 +379,7 @@ h1, h2, h3{
 .footer-block{ margin-top: 14px; }
 
 .footer-label{
-  color: #fff;
+  color: var(--gold-soft);
   font-weight: 700;
   margin-bottom: 6px;
 }
@@ -402,7 +402,7 @@ h1, h2, h3{
 }
 
 .map-link{
-  color: #ffffff;
+  color: #fff;
   text-decoration: underline;
   text-decoration-color: rgba(239, 209, 78, 0.8);
   text-underline-offset: 3px;
