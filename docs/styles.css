@@ -623,7 +623,10 @@ h1, h2, h3{
 .contact-page .contact-label{
   color: #111;
 }
-
+/* Contact page: make the in-office address visible on the light card */
+.contact-page .map-link{
+  color: #111;
+}
 .contact-page{ padding-top: 18px; padding-bottom: 8px; }
 
 .contact-hero{ text-align: center; padding: 10px 0 18px; }
