@@ -135,7 +135,7 @@ h1, h2, h3{
 }
 
 .site-nav{
-  display: none;
+  display: flex;
   width: 100%;
   padding-top: 12px;
   flex-direction: column;
@@ -147,7 +147,7 @@ h1, h2, h3{
 
 /* Desktop nav */
 @media (min-width: 800px){
-  .nav-toggle{ display: none; }
+  .nav-toggle{ display: flex; }
   .site-nav{
     display: flex;
     width: auto;
