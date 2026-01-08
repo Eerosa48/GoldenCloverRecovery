@@ -404,6 +404,7 @@ h1, h2, h3{
 .map-link{
   color: #ffffff;
   text-decoration: underline;
+  text-decoration-color: rgba(239, 209, 78, 0.8);
   text-underline-offset: 3px;
 }
 
