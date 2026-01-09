@@ -10,25 +10,25 @@
   font-family: "Brittany";
   src: url("assets/fonts/Brittany.woff2") format("woff2"),
        url("assets/fonts/Brittany.woff") format("woff");
-  font-weight: 400;
+  font-weight: 800;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
   font-family: "Merriweather Sans";
-  src: url("assets/fonts/Merriweather Sans.woff2") format("woff2"),
-       url("assets/fonts/Merriweather Sans.woff") format("woff");
-  font-weight: 400;
+  src: url("assets/fonts/MerriweatherSans.woff2") format("woff2"),
+       url("assets/fonts/MerriweatherSans.woff") format("woff");
+  font-weight: 800;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
   font-family: "The Seasons";
-  src: url("assets/fonts/The Seasons.woff2") format("woff2"),
-       url("assets/fonts/The Seasons.woff") format("woff");
-  font-weight: 400;
+  src: url("assets/fonts/TheSeasons.woff2") format("woff2"),
+       url("assets/fonts/TheSeasons.woff") format("woff");
+  font-weight: 800;
   font-style: normal;
   font-display: swap;
 }
