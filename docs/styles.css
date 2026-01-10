@@ -236,10 +236,10 @@ h1, h2, h3{
 @media (max-width: 820px){
   .hero{
     padding: 26px 18px;
-    min-height: 360px;
+    min-height: auto;
 
     /* show more of the neon sign on small screens */
-    background-size: cover;
+    background-size: contain;
     background-color: transparent;
   }
 
