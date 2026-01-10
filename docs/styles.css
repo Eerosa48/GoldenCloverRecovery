@@ -740,3 +740,8 @@ h1, h2, h3{
 }
 
 .map-open{ margin-top: 12px; }
+
+.services-sectionfont{
+  font-family: var(--font-alt-1);
+  font-size: clamp(28px, 6vw, 44px);
+}
