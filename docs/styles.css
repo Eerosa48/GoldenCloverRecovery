@@ -590,7 +590,14 @@ h1, h2, h3{
   max-width: 720px;
   margin: 0 auto;
 }
-
+.family-strip--two{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  align-items: stretch;
+  max-width: 480px; /* keeps image sizing close to the 3-up strip */
+  margin: 0 auto;
+}
 .family-strip img{
   width: 100%;
   aspect-ratio: 1 / 1;
@@ -598,6 +605,18 @@ h1, h2, h3{
   border-radius: 10px;
   border: 1px solid var(--border);
   display: block;
+}
+/* Keep the family text centered under the 2-photo strip */
+.family-copy--two{
+  margin: 0 auto;
+  max-width: 480px; /* matches the 2-image strip sizing */
+  /* text-align: center; */ /* optional: only enable if you want centered text */
+}
+
+@media (min-width: 900px){
+  .family-copy--two{
+    margin: 0 auto; /* overrides the existing .family-copy { margin: 0; } */
+  }
 }
 
 @media (min-width: 900px){
@@ -619,10 +638,10 @@ h1, h2, h3{
     margin: 0;
   }
   .family-copy{
-    margin: 0;
+    margin: 0 auto;
   }
   .family-strip{
-    margin: 0;
+    margin: 0 auto;
   }
 }
 .contact-panel{
