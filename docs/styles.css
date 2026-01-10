@@ -239,7 +239,8 @@ h1, h2, h3{
     min-height: 360px;
 
     /* show more of the neon sign on small screens */
-    background-size: cover;
+    background-size: contain;
+    background-color: #000;
   }
 
   .hero .actions{
