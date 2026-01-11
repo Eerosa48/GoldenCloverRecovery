@@ -207,9 +207,9 @@ h1, h2, h3{
 }
 
 .hero-img{
-	display: block;
+	display: contain;
 	width: 100%;
-	height: auto;
+	height: 100%;
 }
 
 /* =========================
