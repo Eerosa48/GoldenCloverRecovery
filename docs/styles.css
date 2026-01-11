@@ -500,6 +500,11 @@ h1, h2, h3{
   color: var(--gold);
 }
 
+/* Footer rights and image credits*/
+.rights{
+  text-align: center;
+}
+
 /* keep the Book Now button looking consistent inside the panel */
 .site-footer .contact-panel .btn-book{
   margin-top: 14px;
