@@ -31,11 +31,11 @@
   </header>
 
   <main class="wrap">
-    <h1 class="about-title">Golden Clover Recovery</h1>
+    <h1 class="about-title" data-reveal>Golden Clover Recovery</h1>
     <section class="hero">
-	  <img class="hero-img" src="assets/neon-sign.jpg" />
+	  <img class="hero-img" data-reveal src="assets/neon-sign.jpg" />
 	  <br>
-	  <p>
+	  <p data-reveal>
         <span style="font-family: 'Merriweather Sans';">Golden Clover Recovery offers a space to relax, restore, and recover for anyone looking to stay active, improve performance, optimize mobility, or reduce pain.
 		Owner Danielle Erosa, inspired by her own journey overcoming chronic hip pain with the help of a Licensed Massage Therapist, became a Licensed Massage Therapist herself.
 		She is dedicated to educating and healing others, believing that no one should have to live in pain.
@@ -44,30 +44,30 @@
     </section>
 
     <section class="section">
-      <h2 class="about-title">Services</h2>
+      <h2 class="about-title" data-reveal>Services</h2>
       <div class="grid">
-        <article class="card">
+        <article class="card" data-reveal>
           <h2 style="font-family: 'Latin Compressed'; font-size: 30px;">Functional Massage</h2>
 		  <a href="services.html#functional"><img src="assets/functional massage home.jpg" /></a>
           <p><span style="font-family: 'Merriweather Sans';">Therapeutic massage focused on mobility, performance, and pain relief.</span></p>
           <a href="services.html#functional"><span style="font-family: 'Merriweather Sans';">More →</span></a>
         </article>
 
-        <article class="card">
+        <article class="card" data-reveal>
           <h2 style="font-family: 'Latin Compressed'; font-size: 30px;">Prenatal / Postpartum Massage</h2>
   		  <a href="services.html#prenatal-postpartum"><img src="assets/prenatal postpartum home.jpg" /></a>
           <p><span style="font-family: 'Merriweather Sans';">Massage focused on Moms!</span></p>
           <a href="services.html#prenatal-postpartum"><span style="font-family: 'Merriweather Sans';">More →</span></a>
         </article>
 		
-		<article class="card">
+		<article class="card" data-reveal>
           <h2 style="font-family: 'Latin Compressed'; font-size: 30px;">IV Hydration Therapy</h2>
 		  <a href="services.html#iv"><img src="assets/iv hydration home.jpg" /></a>
           <p><span style="font-family: 'Merriweather Sans';">Convenient IV hydration for basic hydration, recovery, illness, or hangover support.</span></p>
           <a href="services.html#iv"><span style="font-family: 'Merriweather Sans';">More →</span></a>
         </article>
 		
-		<article class="card">
+		<article class="card" data-reveal>
           <h2 style="font-family: 'Latin Compressed'; font-size: 30px;">Ultimate Recovery Combo</h2>
 		  <a href="services.html#combo"><img src="assets/combo home.jpg" /></a>
           <p><span style="font-family: 'Merriweather Sans';">Combination of IV Therapy and Functional Massage.</span></p>
@@ -76,7 +76,7 @@
       </div>
     </section>
 
-	<section class="section">
+	<section class="section" data-reveal>
 	  <h2 class="about-title">Reviews<h2>
 	  <article class="card">
 	    <iframe src="https://www.massagebook.com/therapists/GoldenCloverRecovery/widget/reviews" frameborder="0" width="100%" height="700"></iframe>
@@ -84,7 +84,7 @@
 	</section>
   </main>
 
-<footer class="site-footer">
+<footer class="site-footer" data-reveal>
   <section>
     <div class="wrap footer-grid">
 
@@ -188,6 +188,29 @@
   document.querySelectorAll("a.map-smart").forEach(a => {
     a.href = mapsUrl;
   });
+  // Reveal on scroll + on initial load
+  const revealEls = document.querySelectorAll("[data-reveal]");
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  if (!reduceMotion && "IntersectionObserver" in window) {
+    const io = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("is-visible");
+        obs.unobserve(entry.target); // remove this line if you want it to animate every time it re-enters
+      });
+    }, {
+      threshold: 0.15,
+      rootMargin: "0px 0px -10% 0px"
+    });
+
+    revealEls.forEach(el => io.observe(el));
+  } else {
+    // Fallback: just show everything
+    revealEls.forEach(el => el.classList.add("is-visible"));
+  }
+</script>
+
 </script>
 </body>
 </html>
