@@ -738,6 +738,20 @@ h1, h2, h3{
   font-family: var(--font-alt-1);
   font-size: clamp(28px, 6vw, 44px);
 }
+
+/* Services page: center the image area without resizing the images */
+.service-media{
+  display: flex;
+  justify-content: center;
+}
+
+.service-media img{
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  height: auto;
+}
+
  /* =========================
    Scroll / load reveal animations
    Add data-reveal to any element you want animated
