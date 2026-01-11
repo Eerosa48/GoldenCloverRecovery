@@ -202,19 +202,14 @@ h1, h2, h3{
    Hero (image + readable text)
    ========================= */
 .hero{
-  position: relative;
-  border-radius: 10px;
-  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
 
-  padding: clamp(28px, 6vw, 96px) clamp(16px, 6vw, 72px);
-  min-height: clamp(320px, 52vh, 520px);
-
-  background:
-    linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0)),
-    url("assets/neon-sign.jpg");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
+.hero-img{
+	display: block;
+	width: 100%;
+	height: auto;
 }
 
 .hero h1{
