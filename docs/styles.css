@@ -240,7 +240,6 @@ h1, h2, h3{
 
     /* show more of the neon sign on small screens */
     background-size: contain;
-    background-color: #000;
   }
 
   .hero .actions{
