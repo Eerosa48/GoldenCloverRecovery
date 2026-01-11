@@ -33,21 +33,21 @@
 <main class="wrap contact-page">
 
   <section class="contact-hero">
-    <h1 class="about-title">CONTACT</h1>
+    <h1 class="about-title" data-reveal>CONTACT</h1>
   </section>
 
   <section class="contact-grid">
     <!-- Contact info -->
     <div class="card contact-card"><span style="font-family: 'Merriweather Sans';">
-      <h2 class="section-title"><strong>Danielle Erosa</strong></h2>
-	  <p>LMT, EMT-P</p>
+      <h2 class="section-title" data-reveal><strong>Danielle Erosa</strong></h2>
+	  <p data-reveal>LMT, EMT-P</p>
 
-      <div class="contact-links">
+      <div class="contact-links" data-reveal>
         <a class="contactpage-link" href="tel:+16025828652">Call / Text: 602-582-8652</a>
         <a class="contactpage-link" href="mailto:GoldenCloverRecovery@gmail.com">Email: GoldenCloverRecovery@gmail.com</a>
       </div>
 
-      <div class="footer-social contact-social">
+      <div class="footer-social contact-social" data-reveal>
         <!-- placeholders: swap src paths later -->
         <a class="social-link" href="https://instagram.com/golden_clover_recovery" target="_blank" rel="noopener" aria-label="Instagram">
           <img class="social-icon" src="assets/Instagram logo.png" alt="Instagram" />
@@ -62,9 +62,9 @@
 
     <!-- Hours + location -->
     <div class="card contact-details"><span style="font-family: 'Merriweather Sans';">
-      <h2 class="section-title">Hours &amp; Location</h2>
+      <h2 class="section-title" data-reveal>Hours &amp; Location</h2>
 
-      <div class="detail-block">
+      <div class="detail-block" data-reveal>
         <div class="contact-label"><strong>By Appointment Only</strong></div>
         <ul class="contact-list">
           <li>Monday: <em>By Appointment Only</em></li>
@@ -77,7 +77,7 @@
         </ul>
       </div>
       <br>
-      <div class="detail-block">
+      <div class="detail-block" data-reveal>
         <div class="contact-label"><strong>In-Office</strong></div>
 
         <a class="map-link map-smart"
@@ -102,7 +102,7 @@
         </a>
       </div>
       <br>
-      <div class="detail-block">
+      <div class="detail-block" data-reveal>
         <div class="contact-label"><strong>Mobile IV</strong></div>
 		<br>
         <div>Mesa, Tempe, Chandler, Gilbert, Scottsdale, Phoenix</div>
@@ -217,6 +217,27 @@
   document.querySelectorAll("a.map-smart").forEach(a => {
     a.href = mapsUrl;
   });
+  // Reveal on scroll + on initial load
+  const revealEls = document.querySelectorAll("[data-reveal]");
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  if (!reduceMotion && "IntersectionObserver" in window) {
+    const io = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("is-visible");
+        obs.unobserve(entry.target); // remove this line if you want it to animate every time it re-enters
+      });
+    }, {
+      threshold: 0.15,
+      rootMargin: "0px 0px -10% 0px"
+    });
+
+    revealEls.forEach(el => io.observe(el));
+  } else {
+    // Fallback: just show everything
+    revealEls.forEach(el => el.classList.add("is-visible"));
+  }
 </script>
 </body>
 </html>

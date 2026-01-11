@@ -34,28 +34,28 @@
 
   <!-- ABOUT -->
   <section class="about-hero">
-    <h1 class="about-title">ABOUT</h1>
+    <h1 class="about-title" data-reveal>ABOUT</h1>
 
     <div class="about-grid">
       <!-- Left image -->
-      <div class="about-photo">
+      <div class="about-photo" data-reveal>
         <img src="assets/about-portrait.jpg" />
       </div>
 
       <!-- Right text -->
       <div class="about-copy">
 	  <span style="font-family: 'Merriweather Sans';">
-        <p>
+        <p data-reveal>
           My name is Danielle Erosa, and I am a Massage Therapist, Paramedic, and Mom with over a decade of experience in the medical field.
 		  My journey has given me a deep understanding of anatomy and physiology, fueling my passion for helping people move and feel their best 
 		  through functional massage, movement, IV hydration, and specialized prenatal and postpartum care.
         </p>
 
-        <p>
+        <p data-reveal>
           On my days off, you can find me hiking, spending time with my husband, son, and pups, or relaxing on the patio with a good cup of coffee.
         </p>
 		
-		<p>
+		<p data-reveal>
 		  I would love to connect and discover how I can support your wellness journey. Reach out to make an appointment today and get you feeling your best.
 		</p>
 	  </span>
@@ -65,11 +65,11 @@
 
   <!-- FAMILY -->
   <section class="family">
-    <h1 class="about-title">The Family and Inspiration</h1>
+    <h1 class="about-title" data-reveal>The Family and Inspiration</h1>
 
     <div class="family-grid">
       <!-- Left image -->
-      <div class="family-left">
+      <div class="family-left" data-reveal>
 	    <div class="family-strip family-strip--two">
           <img src="assets/family 1.jpg" />
 		  <img src="assets/family 2.jpg" />
@@ -79,13 +79,13 @@
       <!-- Middle text -->
       <div class="family-copy family-copy--two">
 	  <span style="font-family: 'Merriweather Sans';">
-        <p>
+        <p data-reveal>
           My husband has been my biggest supporter from day one, cheering me on through every step of building this business. Becoming a mom and 
 		  experiencing pregnancy firsthand completely changed my perspective, sparking my passion for prenatal and postpartum care. I know how 
 		  demanding this season can be, and I’m here to support women with care that’s informed, intuitive, and supportive.
         </p>
 		
-		<p>
+		<p data-reveal>
 		  Golden Clover was inspired by our pups—Ellie(left), Clover(middle), and Atlas(right). They are at the heart of the name, which reflects what I believe in 
 		  most: strong women, resilience, and showing up bravely through every season.
 		</p>
@@ -93,7 +93,7 @@
       </div>
 
       <!-- Right image strip -->
-      <div class="family-right">
+      <div class="family-right" data-reveal>
         <div class="family-strip">
           <img src="assets/dog-1.jpg" />
           <img src="assets/dog-2.jpg" />
@@ -209,6 +209,27 @@
   document.querySelectorAll("a.map-smart").forEach(a => {
     a.href = mapsUrl;
   });
+  // Reveal on scroll + on initial load
+  const revealEls = document.querySelectorAll("[data-reveal]");
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  if (!reduceMotion && "IntersectionObserver" in window) {
+    const io = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("is-visible");
+        obs.unobserve(entry.target); // remove this line if you want it to animate every time it re-enters
+      });
+    }, {
+      threshold: 0.15,
+      rootMargin: "0px 0px -10% 0px"
+    });
+
+    revealEls.forEach(el => io.observe(el));
+  } else {
+    // Fallback: just show everything
+    revealEls.forEach(el => el.classList.add("is-visible"));
+  }
 </script>
 </body>
 </html>
