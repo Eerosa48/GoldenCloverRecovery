@@ -214,7 +214,7 @@ h1, h2, h3{
     url("assets/neon-sign.jpg");
   background-repeat: no-repeat;
   background-position: center;
-  background-size: contain;
+  background-size: cover;
 }
 
 .hero h1{
@@ -236,7 +236,7 @@ h1, h2, h3{
 @media (max-width: 820px){
   .hero{
     padding: 26px 18px;
-    min-height: auto;
+    min-height: 360px;
 
     /* show more of the neon sign on small screens */
     background-size: contain;
